@@ -12,6 +12,34 @@ protected:
   vector<T> mVect;
 
 public:
+queue<T>& operator=(queue<T> other) {
+      this->mVect=other.mVect;
+      return *this;
+    }
+
+bool empty(){
+    return mVect.size()==0;
+}
+
+int size(){
+    return mVect.size();
+}
+
+T& front(){
+    return mVect[0];
+}
+
+T&  back(){
+    return mVect[size()-1];
+}
+
+void push(T element){
+    mVect.push_back(element);
+}
+
+void pop(){
+    mVect.erase(mVect.begin());
+}
 
 };
 }
@@ -58,7 +86,8 @@ void test2(){
 
 void test3(){
   queue<string> q;
-  size_t n = 1e6;
+  //size_t n = 1e6;
+  size_t n = 1e2;
   for(size_t i = 0 ; i < n ; i++){
     string a = "a";
     q.push(a);
